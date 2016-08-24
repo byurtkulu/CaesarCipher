@@ -48,7 +48,7 @@ def decription():
         copy_of_alphabet_2[element] = copy_of_alphabet_2[element] % 26
         print str(element) + ":" + str(copy_of_alphabet_2[element])
       while True:
-        message = raw_input("Enter one word at a time to decript(type 'EXIT' to stop): ")
+        message = raw_input("Enter message to decript(type 'EXIT' to stop): ")
         message = message.upper()
         inverted_alphabet = {y:x for x,y in alphabet.items()}
 
@@ -62,7 +62,11 @@ def decription():
               decripted_message += char          
           print decripted_message
           continue
-          
+  elif choice == "ai":
+    print "coming soon..."
+  else:
+    print "invalid choice"
+        
 
 encription()
 decription()
