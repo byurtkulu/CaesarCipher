@@ -69,10 +69,47 @@ def decription():
           sleep(2)
           print decripted_message
           continue
-  elif choice == "ai":
-    print "coming soon..."
+  elif choice == "ai": # will guess by using frequency of letters
+    frequency_alphabet = {'A':0, 'B':0, 'C':0, 'D':0, 'E':0, 'F':0, 'G':0, 'H':0, 'I':0, 'J':0, 'K':0, 'L':0, 'M':0, 'N':0, 'O':0, 'P':0, 'Q':0, 'R':0, 'S':0, 'T':0, 'U':0, 'V':0, 'W':0, 'X':0, 'Y':0, 'Z':0}
+    message = raw_input("What is the message? :  ")
+    message = message.upper()
+    message = message.replace(" ", "")
+    
+    for letter in message: # detects the frequency of letters
+      if letter in frequency_alphabet:
+        frequency_alphabet[letter] += 1 
+      else:
+        pass
+    print "Detecting the frequency of letters..."
+    sleep(2)
+    print frequency_alphabet
+   
+    for letter in frequency_alphabet: #prints the frequency of letters for user
+      if frequency_alphabet[letter] > 0:
+        print str(letter) + " = " + str(frequency_alphabet[letter])
+      else:
+        pass
+    
+    base_list = []
+    base_num = 0
+    base_letter = "A"
+    for letter in frequency_alphabet:
+      if frequency_alphabet[letter] >= base_num:
+        base_num = frequency_alphabet[letter]
+        base_letter = letter
+      else:
+        pass
+    print "Base number: %.0f" % base_num
+    print "Base letter: %s" % base_letter
+      
+ 
+
+
+    
+
   else:
-    print "invalid choice"
+    print "invalid choice!"
+    sleep(1)
         
 
 print "welcome to Ceasar Cipher program!"
@@ -99,6 +136,10 @@ while True:
       break
     elif valid == "N":
       continue
+    else:
+      print "Ok, you need a fresh air :) Exiting..."
+      sleep(1)
+      break
 
 
 
