@@ -13,8 +13,24 @@ copy_of_alphabet_2 = {'A':0, 'B':1, 'C':2, 'D':3, 'E':4, 'F':5, 'G':6, 'H':7, 'I
 #copy of alphabet 1 and 2 are for shifting with the key
 
 def key(): 
-  # Shifts the alphabet with the random key
-  key = randint(1,25)             # use this key to shift
+  # Shifts the alphabet with the random/choosen key
+  
+  key_choice = raw_input("Do you want to choose the key? (or key will be random..) (Y/N): ")
+  key_choice = key_choice.upper()
+  
+  if key_choice == "Y":
+    key = input("Enter the key (1-25): ")
+    print "Shifting..."
+    sleep(1)
+  elif key_choice == "N":
+    print "Choosing the key..."
+    sleep(1)
+    key = randint(1,25)             # use this key to shift
+  else:
+    print "invalid choice. Key is going to be random."
+    sleep(1)
+    key = randint(1,25)
+  
   print "key: %s" % key 
   for element in sorted(copy_of_alphabet_1):
     copy_of_alphabet_1[element] += key     # shifting...
@@ -37,6 +53,10 @@ def encription():
   print "message is being encripted..."
   sleep(2)
   print encripted_message
+
+  
+
+
 
  
 def decription():
@@ -82,7 +102,7 @@ def decription():
         pass
     print "Detecting the frequency of letters..."
     sleep(2)
-    print frequency_alphabet
+    # print frequency_alphabet     -use this to print dictionary-
    
     for letter in frequency_alphabet: #prints the frequency of letters for user
       if frequency_alphabet[letter] > 0:
@@ -93,6 +113,7 @@ def decription():
     base_list = []
     base_num = 0
     base_letter = "A"
+    
     for letter in frequency_alphabet:
       if frequency_alphabet[letter] >= base_num:
         base_num = frequency_alphabet[letter]
@@ -101,12 +122,8 @@ def decription():
         pass
     print "Base number: %.0f" % base_num
     print "Base letter: %s" % base_letter
-      
- 
-
-
-    
-
+    base_list.append(base_letter)
+    print base_list
   else:
     print "invalid choice!"
     sleep(1)
@@ -127,7 +144,9 @@ while True:
     sleep(1)
     decription()
     continue
-  elif user_choice =="x":
+  elif user_choice == "x":
+    print "Exiting..."
+    sleep(1)
     break
   else: 
     valid = raw_input("This is not a valid choice. Do you want to exit? (Y/N): ")
@@ -137,7 +156,7 @@ while True:
     elif valid == "N":
       continue
     else:
-      print "Ok, you need a fresh air :) Exiting..."
+      print "Ok, you need a fresh air. Exiting..."
       sleep(1)
       break
 
