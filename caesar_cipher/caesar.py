@@ -129,6 +129,7 @@ def decription():
     sleep(1)
         
 
+# This makes program works
 print "welcome to Ceasar Cipher program!"
 sleep(1)
 while True:
